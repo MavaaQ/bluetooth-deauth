@@ -3,15 +3,15 @@
 
 ## Features
 **Device Scanning:**
-        Uses the hcitool scan command to detect nearby Bluetooth devices.
-        Displays a list of discovered devices with their MAC addresses and names.
-        Allows the user to select a target device by index.
+- Uses the hcitool scan command to detect nearby Bluetooth devices.
+- Displays a list of discovered devices with their MAC addresses and names.
+- Allows the user to select a target device by index.
 
 **Attack Configuration:**
-        Prompts the user for the size of packets to send.
-        Provides a choice between two attack types:
-            Ping Flood (l2ping): Sends continuous ping packets to the target.
-            Connection Flood (rfcomm): Sends repeated connection requests to the target.
+- Prompts the user for the size of packets to send.
+- Provides a choice between two attack types:
+            - Ping Flood (l2ping): Sends continuous ping packets to the target.
+            - Connection Flood (rfcomm): Sends repeated connection requests to the target.
 
 **Automation:**
         Automatically injects the selected device's MAC address into the attack command.
@@ -67,7 +67,7 @@ sudo apt-get install bluez
 
 Run the script with proper permissions (e.g., sudo).
 
-**Example Output**
+## Example Output
 
     [*] Scanning for Bluetooth devices nearby...
     [*] Devices found:
