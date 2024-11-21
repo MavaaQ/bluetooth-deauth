@@ -1,86 +1,95 @@
-# bluetooth-deauth
-This script is a Bluetooth Deauthentication Tool, designed to send a large number of packets to a Bluetooth device to test its stability or resilience under stress. It supports two attack types: ping flood and connection flood. The tool is written in Bash and includes a device discovery feature for selecting a target.
-Features
+<h1 align="center">Bluetooth +</h1>
+<p align="center">bluetooth deauther with automation.</p><br>
 
-    Device Scanning:
+## Features
+**Device Scanning:**
         Uses the hcitool scan command to detect nearby Bluetooth devices.
         Displays a list of discovered devices with their MAC addresses and names.
         Allows the user to select a target device by index.
 
-    Attack Configuration:
+**Attack Configuration:**
         Prompts the user for the size of packets to send.
         Provides a choice between two attack types:
             Ping Flood (l2ping): Sends continuous ping packets to the target.
             Connection Flood (rfcomm): Sends repeated connection requests to the target.
 
-    Automation:
+**Automation:**
         Automatically injects the selected device's MAC address into the attack command.
         Loops indefinitely to continue the attack until manually stopped.
 
-Script Overview
+## Script Overview
 
-The script consists of two main parts:
+**The script consists of two main parts:**
 
-    Device Discovery:
+Device Discovery:
         The function find_devices scans for Bluetooth devices and provides a list for user selection. The selected device's MAC address is used as the attack target.
 
-    Attack Execution:
+Attack Execution:
         The user provides the packet size and selects the attack type.
         Based on the user's choices, the script constructs the appropriate attack command (l2ping or rfcomm) and executes it in a loop.
 
-How to Use
+## How to Use
 
-    Clone the Repository:
-
-git clone https://github.com/<your-username>/bluetooth-deauthenticator.git
+**Clone the Repository:**
+```
+git clone https://github.com/mavaaq/bluetooth-deauthenticator.git
+```
+```
 cd bluetooth-deauthenticator
+```
 
-Run the Script:
+  
 
-    ./bluetooth_attack.sh
+## Run the Script:
 
-    Follow the Prompts:
+```
+./bluetooth_attack.sh
+```
+
+
+Follow the Prompts:
         The script will scan for nearby Bluetooth devices.
         Select the target device by entering its index from the list.
         Specify the packet size and choose an attack type.
 
-    Monitor the Attack:
+Monitor the Attack:
         The script will continuously send packets to the selected target.
         Press Ctrl+C to stop the attack.
 
-Requirements
+## Requirements
 
     Linux system with Bluetooth support.
     BlueZ tools installed:
 
-    sudo apt-get install bluez
+```
+sudo apt-get install bluez
+```
 
     Run the script with proper permissions (e.g., sudo).
 
-Example Output
+**Example Output**
 
-[*] Scanning for Bluetooth devices nearby...
-[*] Devices found:
-0) 00:1A:7D:DA:71:13 - Device_1
-1) 00:1B:63:84:45:E6 - Device_2
-[?] Enter the number of the device you want to target: 1
-[+] Selected device: 00:1B:63:84:45:E6
-[?] Enter the packet size (e.g., 128): 256
-Attack types:
-    1) l2ping - Ping flood
-    2) rfcomm - Connect flood
-[?] Select the attack type (1 or 2): 1
-Bluetooth deauthenticator v0.2.0-alpha
-[*] Starting attack on 00:1B:63:84:45:E6 -- Packet size: 256 -- Attack type: 1
-[+] Packet sent to 00:1B:63:84:45:E6 -- Packet size: 256 -- Attack type: 1
-...
+    [*] Scanning for Bluetooth devices nearby...
+    [*] Devices found:
+    0) 00:1A:7D:DA:71:13 - Device_1
+    1) 00:1B:63:84:45:E6 - Device_2
+    [?] Enter the number of the device you want to target: 1
+    [+] Selected device: 00:1B:63:84:45:E6
+    [?] Enter the packet size (e.g., 128): 256
+    Attack types:
+        1) l2ping - Ping flood
+        2) rfcomm - Connect flood
+    [?] Select the attack type (1 or 2): 1
+    Bluetooth deauthenticator v0.2.0-alpha
+    [*] Starting attack on 00:1B:63:84:45:E6 -- Packet size: 256 -- Attack type: 1
+    [+] Packet sent to 00:1B:63:84:45:E6 -- Packet size: 256 -- Attack type: 1
 
-Important Notes
+## Important Notes
 
-    Educational Purposes Only: This script is intended for research, testing, and educational purposes. It should only be used in environments where you have explicit permission to test devices.
-    Ethical Use: Unauthorized use of this script to disrupt or harm devices is illegal and unethical. Always comply with local laws and regulations.
+Educational Purposes Only: This script is intended for research, testing, and educational purposes. It should only be used in environments where you have explicit permission to test devices.
+Ethical Use: Unauthorized use of this script to disrupt or harm devices is illegal and unethical. Always comply with local laws and regulations.
 
-Contributions
+## Contributions
 
 Feel free to open issues or submit pull requests to improve the script. Contributions are welcome, whether it's fixing bugs, optimizing the script, or adding new features.
 License
