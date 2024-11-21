@@ -48,18 +48,18 @@ cd bluetooth-deauthenticator
 
 
 Follow the Prompts:
-        The script will scan for nearby Bluetooth devices.
-        Select the target device by entering its index from the list.
-        Specify the packet size and choose an attack type.
+- The script will scan for nearby Bluetooth devices.
+- Select the target device by entering its index from the list.
+- Specify the packet size and choose an attack type.
 
 Monitor the Attack:
-        The script will continuously send packets to the selected target.
-        Press Ctrl+C to stop the attack.
+- The script will continuously send packets to the selected target.
+- Press Ctrl+C to stop the attack.
 
 ## Requirements
 
-Linux system with Bluetooth support.
-BlueZ tools installed:
+- Linux system with Bluetooth support.
+- BlueZ tools installed:
 
 ```
 sudo apt-get install bluez
