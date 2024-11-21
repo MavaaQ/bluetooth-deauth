@@ -1,4 +1,4 @@
-<h1 align="center">Bluetooth +</h1>
+<h1 align="center">Bluetooth DeAuth</h1>
 <p align="center">bluetooth deauther with automation.</p><br>
 
 ## Features
