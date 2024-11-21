@@ -8,6 +8,7 @@
 - Allows the user to select a target device by index.
 
 **Attack Configuration:**
+
 Prompts the user for the size of packets to send.
 Provides a choice between two attack types:
 Ping Flood (l2ping): Sends continuous ping packets to the target.
