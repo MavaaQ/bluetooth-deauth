@@ -58,14 +58,14 @@ Monitor the Attack:
 
 ## Requirements
 
-    Linux system with Bluetooth support.
-    BlueZ tools installed:
+Linux system with Bluetooth support.
+BlueZ tools installed:
 
 ```
 sudo apt-get install bluez
 ```
 
-    Run the script with proper permissions (e.g., sudo).
+Run the script with proper permissions (e.g., sudo).
 
 **Example Output**
 
