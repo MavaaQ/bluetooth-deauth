@@ -15,8 +15,9 @@ Provides a choice between two attack types:
 2. Connection Flood (rfcomm): Sends repeated connection requests to the target.
 
 **Automation:**
-        Automatically injects the selected device's MAC address into the attack command.
-        Loops indefinitely to continue the attack until manually stopped.
+
+- Automatically injects the selected device's MAC address into the attack command.
+- Loops indefinitely to continue the attack until manually stopped.
 
 ## Script Overview
 
