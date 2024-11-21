@@ -9,9 +9,9 @@
 
 **Attack Configuration:**
 - Prompts the user for the size of packets to send.
-- Provides a choice between two attack types:
-            Ping Flood (l2ping): Sends continuous ping packets to the target.
-            Connection Flood (rfcomm): Sends repeated connection requests to the target.
+Provides a choice between two attack types:
+- Ping Flood (l2ping): Sends continuous ping packets to the target.
+- Connection Flood (rfcomm): Sends repeated connection requests to the target.
 
 **Automation:**
         Automatically injects the selected device's MAC address into the attack command.
