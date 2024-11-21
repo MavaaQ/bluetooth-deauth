@@ -11,8 +11,8 @@
 
 Prompts the user for the size of packets to send.
 Provides a choice between two attack types:
-Ping Flood (l2ping): Sends continuous ping packets to the target.
-Connection Flood (rfcomm): Sends repeated connection requests to the target.
+1. Ping Flood (l2ping): Sends continuous ping packets to the target.
+2. Connection Flood (rfcomm): Sends repeated connection requests to the target.
 
 **Automation:**
         Automatically injects the selected device's MAC address into the attack command.
@@ -33,10 +33,10 @@ Attack Execution:
 
 **Clone the Repository:**
 ```
-git clone https://github.com/mavaaq/bluetooth-deauthenticator.git
+git clone https://github.com/mavaaq/bluetooth-deauth.git
 ```
 ```
-cd bluetooth-deauthenticator
+cd bluetooth-deauth
 ```
 
   
@@ -44,7 +44,7 @@ cd bluetooth-deauthenticator
 ## Run the Script:
 
 ```
-sudo bash bluetooth_attack.sh
+sudo bash bluetooth_deauth.sh
 ```
 
 
